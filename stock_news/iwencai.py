@@ -3,7 +3,10 @@
 import urllib2
 import re
 import datetime
+import sys
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 def geturl():
@@ -74,7 +77,7 @@ def getnews(search_key):
 	final_news = temp_result1 = re.compile(pattern_news).findall(html)
 	
 	for counter in range(len(final_news)):
-		final_news[counter] = final_news[counter][11:][:-9]
+		final_news[counter] = final_news[counter][11:][:-9].decode('unicode_escape')
 
 	return final_news
 
@@ -84,5 +87,5 @@ dict = {}
 for i in range(len(stockCode)):
 	dict[stockCode[i]] = getnews(stockCode[i])
 
-print dict
-
+for i in range(len(dict)):
+	print stockCode[i],':',dict[stockCode[i]]
