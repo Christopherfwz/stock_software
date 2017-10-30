@@ -37,6 +37,37 @@ dict['www.prcfe.com'] = \
                "中国财经新闻网",
                '/html/body/div[3]/div[1]/ul[1]/li[1]/span/text()',
                '/html/body/div[3]/div[1]/ul[1]/li[2]/span/text()')
+dict['stock.eastmoney.com'] = \
+    OriginDict("static",
+               "东方财富网-股票频道",
+               '/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()',
+               '/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img/@alt')
+dict['stock.hexun.com'] = \
+    OriginDict("static",
+               "和讯网",
+               'html/body/div[4]/div/div[1]/span/text()',
+               '/html/body/div[4]/div/div[1]/a/text()')
+dict['stock.jfinfo.com'] = \
+    OriginDict("static",
+               "巨丰财经",
+               '/html/body/div[2]/div[2]/div[1]/div[1]/span[1]/text()')
+dict['stock.n8n8.cn'] = \
+    OriginDict("static",
+               "多赢股票网",
+               '/html/body/div[2]/div[4]/div/div[1]/div[1]/div[1]/div[1]/span[2]/text()')
+dict['wallstreetcn.com'] = \
+    OriginDict("static",
+               "华尔街见闻",
+               '//*[@id="app"]/div/main/div/div[4]/div[1]/div[2]/div[1]/span/text()',
+               '//*[@id="app"]/div/main/div/div[4]/div[1]/div[2]/div[2]/text()')
+dict['web.ql18.com.cn'] = \
+    OriginDict("static",
+               "钱龙网",
+               '/html/body/div[3]/div[4]/div[1]/div[1]/span[1]/text()',
+               '/html/body/div[3]/div[4]/div[1]/div[1]/span[2]/text()')
+dict['www.a528.net'] = \
+    OriginDict("dynamic",
+               "足球网址大全")
 dict['mini.eastday.com'] = \
     OriginDict("static",
                "东方头条",
@@ -67,7 +98,6 @@ dict['www.ce.cn'] = \
                "中国经济网",
                '//*[@id="articleTime"]/text()',
                '//*[@id="articleSource"]/text()')
-
 dict['www.chinanews.com'] = \
     OriginDict("static",
                "中国新闻网",
