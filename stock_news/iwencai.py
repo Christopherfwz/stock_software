@@ -30,14 +30,14 @@ def geturl():
 	for counter in range(len(rise_reason)):
 		rise_reason[counter] = rise_reason[counter][1:][:-4]
 	
-	#怎么判断reason是否为“新股”
-	#counter0 = 0
-	#while counter0<len(reason):
-	#if reason[counter0].encode('unicode_escape') == u'\u65b0\u80a1:
-	#	del stockcode[counter0]
-	#	del reason[counter0]
-	#else:
-	#	counter0 = counter0+1
+	#judge whether the reason is 'new stock'
+	counter0 = 0
+	while counter0<len(rise_reason):
+		if rise_reason[counter0] == u'\u65b0\u80a1':
+			del stockcode[counter0]
+			del rise_reason[counter0]
+		else:
+			counter0 = counter0+1
 	
 	return stockcode
 
@@ -81,7 +81,7 @@ def getnews(search_key):
 
 stockCode=geturl()
 dict = {}
-for i in range(20):
+for i in range(len(stockCode)):
 	dict[stockCode[i]] = getnews(stockCode[i])
 
 print dict
