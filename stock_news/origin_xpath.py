@@ -89,7 +89,7 @@ dict['www.bestopview.com'] = \
                '//*[@id="ArtFrom"]/text()[2]',
                origin=None)
 			   
-dict['http://www.ccstock.cn/'] = \
+dict['www.ccstock.cn'] = \
     OriginDict("static",
                "中国资本证券网",
                time=None,
@@ -104,7 +104,7 @@ dict['www.cfi.net.cn'] = \
                other='//*[@id="tdcontent"]/table/tbody/tr/td[2]')
 			   
 
-dict['http://www.cs.com.cn/'] = \
+dict['www.cs.com.cn'] = \
     OriginDict("static",
                "中证网",
                '/html/body/div[4]/div[1]/div[1]/span[3]/text()',
@@ -114,17 +114,61 @@ dict['www.csiii.cn'] = \
     OriginDict("dynamic",
                "中证资讯",)
 
-dict['http://www.cx368.com/'] = \
+dict['www.cx368.com'] = \
     OriginDict("static",
                "中国财讯网",
                '//*[@id="article-cmt"]/div[1]/div/div/table/tbody/tr/td[1]/span[2]/text()',
                '//*[@id="article-cmt"]/div[1]/div/div/table/tbody/tr/td[1]/text()')
 
-dict['http://www.dsd168.cn/'] = \
+dict['www.dsd168.cn'] = \
     OriginDict("static",
                "安徽大时代",
                '//*[@id="content"]/div/div[1]/div[2]/text()',
                origin=None)
+dict['www.ecjr.com'] = \
+    OriginDict("static",
+               "和讯易财",
+               '/html/body/div[5]/div[1]/p/span[3]/text()',
+               '/html/body/div[5]/div[1]/p/span[2]/text()')
+			   
+dict['www.eeworld.com.cn/'] = \
+    OriginDict("static",
+               "电子工程世界",
+               '//*[@id="newsptit"]/div[1]/div/h6/span[1]/text()',
+			   '//*[@id="newsptit"]/div[1]/div/h6/span[2]/text()')
+			   
+dict['www.esmchina.com'] = \
+    OriginDict("static",
+               "国际电子商情",
+			   '//*[@id="app"]/div/main/section/article/header/div/div/ul/li[1]/text()',
+			   '//*[@id="app"]/div/main/section/article/header/div/div/ul/li[3]/text()')
+			   
+
+dict['www.eweb.net.cn'] = \
+    OriginDict("static",
+               "侃股网",
+               '//*[@id="ct"]/div[1]/div[1]/div[1]/p/text()',
+               '//*[@id="ct"]/div[1]/div[1]/div[1]/p/a/text()')
+
+#来源写在正文末尾，基本是投资快报
+dict['www.fxk8.com'] = \
+    OriginDict("dynamic",
+               "风险看吧股市内参",
+			   '//*[@id="divMainn"]/div/h4/text()[1]',
+			   origin=None)
+
+dict['www.gg-led.com'] = \
+    OriginDict("static",
+               "高工LED网",
+               '//*[@id="meyu"]/div[2]/span[1]/text()[1]',
+               '//*[@id="meyu"]/div[2]/span[1]/text()[2]')
+
+dict['www.gushi263.com"'] = \
+    OriginDict("static",
+               "263股票行情网",
+               time=None,
+               origin=None,
+			   other='/html/body/div[8]/div[1]/div/div[2]/text()')
 dict['xueqiu.com'] = \
     OriginDict("static",
                "雪球",
