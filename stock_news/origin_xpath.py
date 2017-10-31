@@ -83,6 +83,48 @@ dict['www.sohu.com'] = \
                "搜狐",
                '//*[@id="news-time"]/text()',
                '//*[@id="article-container"]/div[2]/div[1]/div[1]/div/span[2]/a/text()')
+dict['www.bestopview.com'] = \
+    OriginDict("static",
+               "散户查股网",
+               '//*[@id="ArtFrom"]/text()[2]',
+               origin=None)
+			   
+dict['http://www.ccstock.cn/'] = \
+    OriginDict("static",
+               "中国资本证券网",
+               time=None,
+			   origin=None,
+			   other='//*[@id="left"]/div[1]/div/span/text()')
+			   
+dict['www.cfi.net.cn'] = \
+    OriginDict("static",
+               "中财网",
+			   time=None,
+			   origin=None,
+               other='//*[@id="tdcontent"]/table/tbody/tr/td[2]')
+			   
+
+dict['http://www.cs.com.cn/'] = \
+    OriginDict("static",
+               "中证网",
+               '/html/body/div[4]/div[1]/div[1]/span[3]/text()',
+               '/html/body/div[4]/div[1]/div[1]/span[2]/text()')
+			   
+dict['www.csiii.cn'] = \
+    OriginDict("dynamic",
+               "中证资讯",)
+
+dict['http://www.cx368.com/'] = \
+    OriginDict("static",
+               "中国财讯网",
+               '//*[@id="article-cmt"]/div[1]/div/div/table/tbody/tr/td[1]/span[2]/text()',
+               '//*[@id="article-cmt"]/div[1]/div/div/table/tbody/tr/td[1]/text()')
+
+dict['http://www.dsd168.cn/'] = \
+    OriginDict("static",
+               "安徽大时代",
+               '//*[@id="content"]/div/div[1]/div[2]/text()',
+               origin=None)
 dict['xueqiu.com'] = \
     OriginDict("static",
                "雪球",
