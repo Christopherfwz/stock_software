@@ -57,7 +57,7 @@ def crawl(search_key, page=1):
 def start(search_key):
     # search_key = raw_input('请输入关键词（关键词之间用空格隔开）：')
     # page = int(raw_input('请输入要记录的结果页数：'))
-    page = 1
+    page = 3
     result = []
     for i in range(0, page):
         result.extend(crawl(search_key, i))

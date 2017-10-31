@@ -7,24 +7,26 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+from sina_crawler import crawlSina
 
-def geturl():
-    start_url = 'https://touzi.sina.com.cn/api/openapi.php/TzyFreeService.getDKStocksList?num=1000&qq-pf-to=pcqq.c2c'
-    req = urllib2.Request(start_url)
-    req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
-    html = urllib2.urlopen(req).read().decode('utf-8')
 
-    # first-level match
-    patern1 = '{"stock_code":"\w+\d+"'
-    temp_result1 = re.compile(patern1).findall(html)
-    temp_result = []
-    temp_result.extend(temp_result1)
-
-    # second-level handle
-    pattern2 = '\w+\d+'
-    result = re.compile(pattern2).findall(','.join(temp_result))
-
-    return result
+# def geturl():
+#     start_url = 'https://touzi.sina.com.cn/api/openapi.php/TzyFreeService.getDKStocksList?num=1000&qq-pf-to=pcqq.c2c'
+#     req = urllib2.Request(start_url)
+#     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
+#     html = urllib2.urlopen(req).read().decode('utf-8')
+#
+#     # first-level match
+#     patern1 = '{"stock_code":"\w+\d+"'
+#     temp_result1 = re.compile(patern1).findall(html)
+#     temp_result = []
+#     temp_result.extend(temp_result1)
+#
+#     # second-level handle
+#     pattern2 = '\w+\d+'
+#     result = re.compile(pattern2).findall(','.join(temp_result))
+#     print result
+#     return result
 
 
 def getnews(search_key, sizeup_ratio):
@@ -80,9 +82,11 @@ def start():
         if ten.isdigit(): break
     ten = int(ten)
 
-    stockCode = geturl()
+    stockCode = crawlSina()
     dict = {}
-    for i in range(20):
+    for i in range(len(stockCode)):
         dict[stockCode[i]] = getnews(stockCode[i], ten)
 
     return dict
+
+

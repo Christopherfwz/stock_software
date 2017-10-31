@@ -6,6 +6,7 @@
 import zt_crawler
 import url_crawler
 import origin_crawler
+import iwencai
 
 unsaved = {}
 dict = zt_crawler.start()

@@ -5,9 +5,10 @@ import re
 from lxml import etree
 from origin_xpath import dict
 import socket
+import chardet
 
 
-def origin_crawler(url,unsaved):
+def origin_crawler(url, unsaved):
     global real_url, res
 
     socket.setdefaulttimeout(6)
@@ -20,7 +21,7 @@ def origin_crawler(url,unsaved):
         req = urllib2.Request(url)
         req.add_header('User-Agent',
                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
-        response = urllib2.urlopen(req,timeout=1)
+        response = urllib2.urlopen(req, timeout=1)
         real_url = response.geturl()  # 获取真实url地址
 
         proto, rest = urllib2.splittype(real_url)
@@ -33,24 +34,36 @@ def origin_crawler(url,unsaved):
 
 
     try:
+        try:
+            a = dict[res]
+        except:
+            return
+
         if dict[res].type == 'dynamic':
             print 1
         elif dict[res].type == 'static':
+            print real_url
             req = urllib2.Request(real_url)
             req.add_header('User-Agent',
                            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
-            html = urllib2.urlopen(req,timeout=60).read().decode('utf-8')
+            html0 = urllib2.urlopen(req, timeout=60).read()
+            charset = chardet.detect(html0)
+
+            html = html0.decode(charset['encoding'])
             dom = etree.HTML(html)
             xpath_time = dict[res].time
             xpath_origin = dict[res].origin
-            time = dom.xpath(xpath_time)[0].encode('utf-8')
-            origin = dom.xpath(xpath_origin)[0].encode('utf-8')
-            if time is None and origin is None:
-                xpath_other = dict[res].other
-                other = dom.xpath(xpath_other)[0].encode('utf-8')
-                print other
 
-            print '\033[5;43m'+time, origin+' \033[0m!'
+            if xpath_time is None and xpath_origin is None:
+                xpath_other = dict[res].other
+                other = dom.xpath(xpath_other)[0]
+                print '\033[5;43m' + other + ' \033[0m!'
+            else:
+                time = dom.xpath(xpath_time)[0]
+                origin = dom.xpath(xpath_origin)[0]
+                # print time, origin
+                print '\033[5;43m'+time, origin+' \033[0m!'
+
         else:
             print '数据库信息不完整，当前页面无法处理。'
     except KeyError:
@@ -60,5 +73,4 @@ def origin_crawler(url,unsaved):
         else:
             unsaved[res] = 1
     except:
-        print '未知错误。'
-
+        print 'xpath有误' + res
