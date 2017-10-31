@@ -131,7 +131,7 @@ dict['www.ecjr.com'] = \
                '/html/body/div[5]/div[1]/p/span[3]/text()',
                '/html/body/div[5]/div[1]/p/span[2]/text()')
 			   
-dict['www.eeworld.com.cn/'] = \
+dict['www.eeworld.com.cn'] = \
     OriginDict("static",
                "电子工程世界",
                '//*[@id="newsptit"]/div[1]/div/h6/span[1]/text()',
@@ -152,7 +152,7 @@ dict['www.eweb.net.cn'] = \
 
 #来源写在正文末尾，基本是投资快报
 dict['www.fxk8.com'] = \
-    OriginDict("dynamic",
+    OriginDict("static",
                "风险看吧股市内参",
 			   '//*[@id="divMainn"]/div/h4/text()[1]',
 			   origin=None)
@@ -163,12 +163,56 @@ dict['www.gg-led.com'] = \
                '//*[@id="meyu"]/div[2]/span[1]/text()[1]',
                '//*[@id="meyu"]/div[2]/span[1]/text()[2]')
 
-dict['www.gushi263.com"'] = \
+dict['www.gushi263.com'] = \
     OriginDict("static",
                "263股票行情网",
                time=None,
                origin=None,
 			   other='/html/body/div[8]/div[1]/div/div[2]/text()')
+dict['www.hibor.com.cn'] = \
+    OriginDict("static",
+               "慧博投研资讯",
+               '/html/body/div[6]/div[1]/div[2]/div[1]/div/span[2]/text()',
+               '/html/body/div[6]/div[1]/div[2]/div[1]/div/span[1]/text()')
+			   
+#来源写在正文末尾
+dict['www.jfinfo.com'] = \
+    OriginDict("static",
+               "巨丰财经",
+               '/html/body/div[2]/div[2]/div[1]/div[1]/span[1]/text()',
+			   origin=None)
+			   
+dict['www.mhngx.com'] = \
+    OriginDict("static",
+               "澳门百家乐",
+			   '/html/body/div[3]/div/div[1]/div[1]/div[1]/span[1]/text()',
+			   '/html/body/div[3]/div/div[1]/div[1]/div[1]/span[3]/text()')
+			   
+
+dict['www.microbell.com'] = \
+    OriginDict("static",
+               "慧博投研资讯",
+               '/html/body/div[6]/div[1]/div[2]/div[1]/div/span[2]/text()',
+               '/html/body/div[6]/div[1]/div[2]/div[1]/div/span[1]/text()')
+
+
+dict['www.paper.edu.cn'] = \
+    OriginDict("static",
+               "中国科技论文在线",
+			   time=None,
+			   origin=None)
+
+dict['www.shunheweimin.com'] = \
+    OriginDict("static",
+               "顺和都市在线",
+               '//*[@id="pubtime_baidu"]/text()',
+               '//*[@id="source_baidu"]/text()')
+
+dict['www.southmoney.com'] = \
+    OriginDict("static",
+               "南方财富网",
+               '/html/body/div[4]/div/div[2]/div/p/text()[1]',
+               '/html/body/div[5]/div/div[2]/div/p/text()[2]')
 dict['xueqiu.com'] = \
     OriginDict("static",
                "雪球",
