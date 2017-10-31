@@ -213,6 +213,58 @@ dict['www.southmoney.com'] = \
                "南方财富网",
                '/html/body/div[4]/div/div[2]/div/p/text()[1]',
                '/html/body/div[5]/div/div[2]/div/p/text()[2]')
+dict['www.xajrxw.com'] = \
+    OriginDict("static",
+               "西安今日新闻",
+               '/html/body/div[6]/div[4]/div[1]/p/span[1]/text()',
+               '/html/body/div[6]/div[4]/div[1]/p/span[2]/a/text()')
+			   
+dict['www.yicai.com'] = \
+    OriginDict("static",
+               "第一财经",
+               '/html/body/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/h2/span[2]/text()',
+			   '/html/body/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/h2/i/text()')
+			   
+dict['www.yiqiniu.com'] = \
+    OriginDict("static",
+               "一起牛",
+			   '/html/body/div/div/div/div[1]/div[3]/div/div/div[1]/div[1]/text()',
+			   '/html/body/div/div/div/div[1]/div[3]/div/div/div[1]/div[2]/text()')
+			   
+
+dict['www.yjcf360.com'] = \
+    OriginDict("static",
+               "赢家财富网",
+               '/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/time/text()',
+               '/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/span[1]/text()')
+
+
+dict['www.yuncaijing.com'] = \
+    OriginDict("static",
+               "云财经",
+			   time=None,
+			   origin=None)
+
+dict['www.zdcj.net'] = \
+    OriginDict("static",
+               "正点财经",
+               time=None,
+			   origin=None,
+			   other='/html/body/div[8]/div[2]/div/div[1]/div/text()')
+
+dict['xinxijishufuwu.juhangye.com'] = \
+    OriginDict("static",
+               "信息服务行业-聚行业",
+               time=None,
+			   origin=None,
+			   other='/html/body/div[3]/div[1]/div[2]/div/div[1]/p/text()')
+			   
+dict['yuanchuang.10jqka.com.cn'] = \
+    OriginDict("static",
+               "同花顺财经",
+               '//*[@id="pubtime_baidu"]/text()',
+               '//*[@id="source_baidu"]/text()')
+
 dict['xueqiu.com'] = \
     OriginDict("static",
                "雪球",
