@@ -264,7 +264,15 @@ dict['yuanchuang.10jqka.com.cn'] = \
                "同花顺财经",
                '//*[@id="pubtime_baidu"]/text()',
                '//*[@id="source_baidu"]/text()')
-
+dict['zhidao.baidu.com'] = \
+    OriginDict("dynamic",
+               "百度知道",)
+			   
+dict['zqrb.ccstock.cn'] = \
+    OriginDict("static",
+               "证券日报",
+               time=None,
+			   origin=None)
 dict['xueqiu.com'] = \
     OriginDict("static",
                "雪球",
