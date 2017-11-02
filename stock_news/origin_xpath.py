@@ -39,8 +39,8 @@ dict['www.prcfe.com'] = \
 dict['stock.eastmoney.com'] = \
     OriginDict("static",
                "东方财富网-股票频道",
-               '/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()',
-               '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a/text()')
+               ['/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()','/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()','/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()'],
+               ['/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img/@alt','/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a/text()','/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img/@alt'])
 dict['stock.hexun.com'] = \
     OriginDict("static",
                "和讯网",
@@ -262,11 +262,11 @@ dict['zhidao.baidu.com'] = \
 #                "证券日报",
 #                time=None,
 #                origin=None)
-dict['xueqiu.com'] = \
-    OriginDict("static",
-               "雪球",
-               '//*[@id="status-94182504"]/div[1]/div[1]/div[2]/a/text()',
-               '//*[@id="status-94182504"]/div[1]/div[1]/div[2]/span/text()')
+#dict['xueqiu.com'] = \
+#    OriginDict("static",
+#               "雪球",
+#               ['//*[@id="status-94182504"]/div[1]/div[1]/div[2]/a/text()','//*[@id="status-94588947"]/div[1]/div[1]/div[2]/a/text()']
+#               '//*[@id="status-94182504"]/div[1]/div[1]/div[2]/span/text()')
 dict['www.360doc.com'] = \
     OriginDict("static",
                "360doc个人图书馆",
@@ -286,8 +286,8 @@ dict['www.chinanews.com'] = \
 dict['news.xinhuanet.com'] = \
     OriginDict("static",
                "新华网",
-               '//*[@id="conTit"]/div/span[1]/text()',
-               '//*[@id="source"]/text()')
+               ['//*[@id="conTit"]/div/span[1]/text()','/html/body/div[2]/div[3]/div/div[2]/span[1]/text()'],
+               ['//*[@id="source"]/text()','//*[@id="source"]/text()'])
 dict['guba.eastmoney.com'] = \
     OriginDict("static",
                "股吧",
@@ -307,8 +307,8 @@ dict['money.163.com'] = \
 dict['stock.jrj.com.cn'] = \
     OriginDict("static",
                "金融街股票",
-               '/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[1]/text()',
-               '/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[2]/a/text()')
+               ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()'],
+               ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]'])
 dict['news.hexun.com'] = \
     OriginDict("static",
                "和讯",
@@ -392,8 +392,9 @@ dict['ent.zdface.com'] = \
 dict['finance.china.com.cn'] = \
     OriginDict("static",
                "中国财经",
-               '/html/body/div[5]/span/text()[1]',
-               '/html/body/div[5]/span/a/text()')
+               time=None,
+               origin=None,
+               other=['/html/body/div[5]/span/text()','/html/body/div[4]/span/text()'])
 
 dict['finance.cjn.cn'] = \
     OriginDict("static",

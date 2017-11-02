@@ -9,7 +9,7 @@ import origin_crawler
 import iwencai
 
 unsaved = {}
-dict = zt_crawler.start()
+dict = iwencai.start()
 for (stock,list) in dict.items():
     print "dict[%s]=" % stock
     for i in list:
