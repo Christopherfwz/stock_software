@@ -44,6 +44,12 @@ def getZtCode():
 
     return stockcode
 
+def corDate(Numb):
+	if int(Numb) < 10:
+		correctDate = '0' + str(Numb)
+	else:
+		correctDate = str(Numb)
+	return correctDate
 
 def getnews(search_key):
     # make sure search_key and page is valid
@@ -62,8 +68,8 @@ def getnews(search_key):
     # set time range for news
     date_now = datetime.datetime.now()
     date_begin = datetime.datetime.now() + datetime.timedelta(days=-3)
-    d_begin = str(date_begin.year) + str(date_begin.month) + str(date_begin.day)
-    d_now = str(date_now.year) + str(date_now.now().month) + str(date_now.day)
+    d_begin = str(date_begin.year) + corDate(date_begin.month) + corDate(date_begin.day)
+    d_now = str(date_now.year) + corDate(date_now.now().month) + corDate(date_now.day)
 
     url_all = url + 'diag/block-detail?pid=11656&codes=' + key_code + '&codeType=stock&info=%7B%22view%22%3A%7B%22nolazy%22%3A1%2C%22parseArr%22%3A%7B%22_v%22%3A%22new%22%2C%22dateRange%22%3A%5B%22'
     url_all = url_all + d_begin + '%22%2C%22' + d_now + '%22%5D%2C%22staying%22%3A%5B%5D%2C%22queryCompare%22%3A%5B%5D%2C%22comparesOfIndex%22%3A%5B%5D%7D%2C%22asyncParams%22%3A%7B%22tid%22%3A9381%7D%7D%7D'
