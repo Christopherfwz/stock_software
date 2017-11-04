@@ -2,7 +2,7 @@
 
 
 class OriginDict:
-    def __init__(self, type, name, time=None, origin=None, other=None,decoding=None):
+    def __init__(self, type, name, time=None, origin=None, other=None, decoding=None):
         self.type = type
         self.name = name
         self.time = time
@@ -46,7 +46,8 @@ dict['stock.hexun.com'] = \
     OriginDict("static",
                "和讯网",
                'html/body/div[4]/div/div[1]/span/text()',
-               '/html/body/div[4]/div/div[1]/a/text()')
+               'GB2312',
+               ['/html/body/div[4]/div/div[1]/a/text()','/html/body/div[2]/div/div[3]/div[2]/div[1]/span[2]'])
 dict['stock.jfinfo.com'] = \
     OriginDict("static",
                "巨丰财经",
@@ -226,8 +227,8 @@ dict['www.yiqiniu.com'] = \
 dict['www.yjcf360.com'] = \
     OriginDict("static",
                "赢家财富网",
-               '/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/time/text()',
-               '/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/span[1]/text()')
+               ['/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/time/text()','/html/body/div[5]/div[1]/div[2]/div[1]/div[1]/time/text()'],
+               ['/html/body/div[7]/div[1]/div[2]/div[1]/div[1]/span[1]/text()','/html/body/div[5]/div[1]/div[2]/div[1]/div[1]/span[1]/text()'])
 
 dict['www.yuncaijing.com'] = \
     OriginDict("static",
@@ -305,6 +306,7 @@ dict['money.163.com'] = \
 dict['stock.jrj.com.cn'] = \
     OriginDict("static",
                "金融街股票",
+               'gbk',
                ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()'],
                ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]'])
 dict['news.hexun.com'] = \
@@ -315,8 +317,9 @@ dict['news.hexun.com'] = \
 dict['www.p5w.net'] = \
     OriginDict("static",
                "全景网",
-               '/html/body/div[3]/div[1]/div/div[1]/span[1]/time/text()',
-               '/html/body/div[3]/div[1]/div/div[1]/span[1]/i[1]/a/text()')
+               'GB2312',
+               ['/html/body/div[3]/div[1]/div/div[1]/span[1]/time/text()','/html/body/div[4]/div[1]/div/div[1]/span[1]/time/text()'],
+               ['/html/body/div[3]/div[1]/div/div[1]/span[1]/i[1]/a/text()','/html/body/div[4]/div[1]/div/div[1]/span[1]/i[1]/a/text()'])
 dict['www.howbuy.com'] = \
     OriginDict("static",
                "财经新闻",
@@ -330,8 +333,8 @@ dict['news.163.com'] = \
 dict['stock.qq.com'] = \
     OriginDict("static",
                "腾讯证券",
-               '//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[4]/text()',
-               '//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()')
+               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[4]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[3]/text()'],
+               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()'])
 dict['diyitui.com'] = \
     OriginDict("static",
                "第一推",
@@ -444,7 +447,7 @@ dict['kuaixun.stcn.com'] = \
                "证券时报网",
                time=None,
                origin=None,
-               other='/html/body/div[7]/div[1]/div[2]/div/text()')
+               other=['/html/body/div[7]/div[1]/div[2]/div/text()','/html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div/text()'])
 
 dict['lights.ofweek.com'] = \
     OriginDict("static",
