@@ -2,7 +2,7 @@
 
 
 class OriginDict:
-    def __init__(self, type, name, time=None, origin=None, other=None, decoding=None):
+    def __init__(self, type, name, time=None, origin=None, decoding=None, other=None):
         self.type = type
         self.name = name
         self.time = time
@@ -45,9 +45,10 @@ dict['stock.eastmoney.com'] = \
 dict['stock.hexun.com'] = \
     OriginDict("static",
                "和讯网",
-               'html/body/div[4]/div/div[1]/span/text()',
-               'GB2312',
-               ['/html/body/div[4]/div/div[1]/a/text()','/html/body/div[2]/div/div[3]/div[2]/div[1]/span[2]'])
+               ['//span[@class="pr20"]/text()','//span[@class="pr20"]/text()', '//span[@class="pr20"]/text()'],
+               ['//div[@class="tip fl"]/a/text()','/html/body/div[4]/div/div[1]/a/text()','/html/body/div[2]/div/div[3]/div[2]/div[1]/span[2]'],
+               decoding='GB2312',
+               )
 dict['stock.jfinfo.com'] = \
     OriginDict("static",
                "巨丰财经",
@@ -306,9 +307,9 @@ dict['money.163.com'] = \
 dict['stock.jrj.com.cn'] = \
     OriginDict("static",
                "金融街股票",
-               'gbk',
-               ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()'],
-               ['/html/body/div[14]/div[4]/div[1]/div[3]/p[1]/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]'])
+               ['//p[@class=\'inftop\']/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()'],
+               ['//p[@class=\'inftop\']/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]'],
+               decoding='GB2312')
 dict['news.hexun.com'] = \
     OriginDict("static",
                "和讯",
@@ -317,9 +318,9 @@ dict['news.hexun.com'] = \
 dict['www.p5w.net'] = \
     OriginDict("static",
                "全景网",
-               'GB2312',
                ['/html/body/div[3]/div[1]/div/div[1]/span[1]/time/text()','/html/body/div[4]/div[1]/div/div[1]/span[1]/time/text()'],
-               ['/html/body/div[3]/div[1]/div/div[1]/span[1]/i[1]/a/text()','/html/body/div[4]/div[1]/div/div[1]/span[1]/i[1]/a/text()'])
+               ['/html/body/div[3]/div[1]/div/div[1]/span[1]/i[1]/a/text()','/html/body/div[4]/div[1]/div/div[1]/span[1]/i[1]/a/text()'],
+               decoding='GB2312')
 dict['www.howbuy.com'] = \
     OriginDict("static",
                "财经新闻",
@@ -447,7 +448,7 @@ dict['kuaixun.stcn.com'] = \
                "证券时报网",
                time=None,
                origin=None,
-               other=['/html/body/div[7]/div[1]/div[2]/div/text()','/html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div/text()'])
+               other=['//div[@class="info"]/text()','/html/body/div[7]/div[1]/div[2]/div/text()','/html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div/text()'])
 
 dict['lights.ofweek.com'] = \
     OriginDict("static",

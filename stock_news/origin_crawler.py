@@ -50,10 +50,10 @@ def origin_crawler(url, unsaved):
             if dict[res].decoding == None:
                 html0 = urllib2.urlopen(req, timeout=60).read()
                 charset = chardet.detect(html0)
-                html = html0.decode(charset['encoding'])
+                html = html0.decode(charset['encoding'],'ignore')
                 print(charset['encoding'])
             else:
-                html = urllib2.urlopen(req, timeout=60).read().decode(dict[res].decoding)
+                html = urllib2.urlopen(req, timeout=60).read().decode(dict[res].decoding,'ignore')
                 print(dict[res].decoding)
 
             dom = etree.HTML(html)
@@ -88,6 +88,7 @@ def origin_crawler(url, unsaved):
                             origin = dom.xpath(temp_origin)[0]
                             # print time, origin
                             print '\033[5;43m' + time, origin + ' \033[0m!'
+                            return
                         except:
                             pass
 

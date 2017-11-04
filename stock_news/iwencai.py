@@ -76,7 +76,7 @@ def getnews(search_key):
     url_all = url_all + d_begin + '%22%2C%22' + d_now + '%22%5D%2C%22staying%22%3A%5B%5D%2C%22queryCompare%22%3A%5B%5D%2C%22comparesOfIndex%22%3A%5B%5D%7D%2C%22asyncParams%22%3A%7B%22tid%22%3A9381%7D%7D%7D'
     req = urllib2.Request(url_all)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
-    time.sleep(1)
+    time.sleep(2)
     print url_all
     html = urllib2.urlopen(req).read()
 
