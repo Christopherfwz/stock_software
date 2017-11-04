@@ -2,11 +2,12 @@
 
 
 class OriginDict:
-    def __init__(self, type, name, time=None, origin=None, other=None):
+    def __init__(self, type, name, time=None, origin=None, other=None,decoding=None):
         self.type = type
         self.name = name
         self.time = time
         self.origin = origin
+        self.decoding = decoding
         if other is not None:
             self.other = other
 
@@ -253,9 +254,6 @@ dict['yuanchuang.10jqka.com.cn'] = \
                "同花顺财经",
                '//*[@id="pubtime_baidu"]/text()',
                '//*[@id="source_baidu"]/text()')
-dict['zhidao.baidu.com'] = \
-    OriginDict("dynamic",
-               "百度知道", )
 
 # dict['zqrb.ccstock.cn'] = \
 #     OriginDict("static",
