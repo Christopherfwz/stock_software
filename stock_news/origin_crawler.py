@@ -60,20 +60,7 @@ def origin_crawler(url, unsaved):
             xpath_time = dict[res].time
             xpath_origin = dict[res].origin
 
-            if xpath_time is None and xpath_origin is None:
-                xpath_other = dict[res].other
-                if type(xpath_other) != list:
-                    other = dom.xpath(xpath_other)[0]
-                    print '\033[5;43m' + other + ' \033[0m!'
-                else:
-                    for i in range(len(xpath_other)):
-                        temp_other = xpath_other[i]
-                        try:
-                            other = dom.xpath(temp_other)[0]
-                            print '\033[5;43m' + other + ' \033[0m!'
-                        except:
-                            pass
-            else:
+            if not(xpath_time is None and xpath_origin is None):
                 if type(xpath_time)!=list:
                     time = dom.xpath(xpath_time)[0]
                     origin = dom.xpath(xpath_origin)[0]
@@ -89,6 +76,20 @@ def origin_crawler(url, unsaved):
                             # print time, origin
                             print '\033[5;43m' + time, origin + ' \033[0m!'
                             return
+                        except:
+                            pass
+
+            if not(dict[res].other is None):
+                xpath_other = dict[res].other
+                if type(xpath_other) != list:
+                    other = dom.xpath(xpath_other)[0]
+                    print '\033[5;43m' + other + ' \033[0m!'
+                else:
+                    for i in range(len(xpath_other)):
+                        temp_other = xpath_other[i]
+                        try:
+                            other = dom.xpath(temp_other)[0]
+                            print '\033[5;43m' + other + ' \033[0m!'
                         except:
                             pass
 

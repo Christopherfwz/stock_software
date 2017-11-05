@@ -56,7 +56,8 @@ dict['stock.jfinfo.com'] = \
 dict['stock.n8n8.cn'] = \
     OriginDict("static",
                "多赢股票网",
-               '/html/body/div[2]/div[4]/div/div[1]/div[1]/div[1]/div[1]/span[2]/text()')
+               '/html/body/div[3]/div[4]/div/div[1]/div[1]/div[1]/div[1]/span[2]/text()',
+               '/html/body/div[3]/div[4]/div/div[1]/div[1]/div[1]/div[1]/span[1]/text()')
 dict['wallstreetcn.com'] = \
     OriginDict("static",
                "华尔街见闻",
@@ -206,7 +207,8 @@ dict['www.southmoney.com'] = \
     OriginDict("static",
                "南方财富网",
                '/html/body/div[4]/div/div[2]/div/p/text()[1]',
-               '/html/body/div[5]/div/div[2]/div/p/text()[2]')
+               '/html/body/div[5]/div/div[2]/div/p/text()[2]',
+               other=['/html/body/div[4]/div/div[2]/div/p/text()','/html/body/div[5]/div/div[2]/div/p/text()'])
 dict['www.xajrxw.com'] = \
     OriginDict("static",
                "西安今日新闻",
@@ -235,7 +237,8 @@ dict['www.yuncaijing.com'] = \
     OriginDict("static",
                "云财经",
                time=None,
-               origin=None)
+               origin=None,
+               other='//*[@id="container"]/div/div[1]/section[1]/header/div/text()[1]')
 
 # dict['www.zdcj.net'] = \
 #     OriginDict("static",
@@ -307,8 +310,8 @@ dict['money.163.com'] = \
 dict['stock.jrj.com.cn'] = \
     OriginDict("static",
                "金融街股票",
-               ['//p[@class=\'inftop\']/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()'],
-               ['//p[@class=\'inftop\']/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]'],
+               ['//p[@class=\'inftop\']/span[1]/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[1]/text()','/html/body/div[1]/div[4]/div[1]/div[3]/p/span[1]/text()'],
+               ['//p[@class=\'inftop\']/span[2]/a/text()','/html/body/div/div[4]/div[1]/div[3]/p[1]/span[2]/text()[2]','/html/body/div[14]/div[4]/div[1]/div[3]/p/span[2]/text()[2]'],
                decoding='GB2312')
 dict['news.hexun.com'] = \
     OriginDict("static",
@@ -334,8 +337,8 @@ dict['news.163.com'] = \
 dict['stock.qq.com'] = \
     OriginDict("static",
                "腾讯证券",
-               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[4]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[3]/text()'],
-               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()'])
+               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[4]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[3]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[3]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/text()'],
+               ['//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/a/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[2]/text()','//*[@id="Main-Article-QQ"]/div/div[1]/div[1]/div[1]/div/div[1]/span[1]/text()'])
 dict['diyitui.com'] = \
     OriginDict("static",
                "第一推",
@@ -367,8 +370,8 @@ dict['app.finance.ifeng.com'] = \
 dict['basic.10jqka.com.cn'] = \
     OriginDict("static",
                "同花顺财经",
-               '//*[@id="pubtime_baidu"]/text()',
-               '//*[@id="source_baidu"]/text()')
+               ['//*[@id="pubtime_baidu"]/text()','/html/body/div[4]/div/div[1]/span/text()'],
+               ['//*[@id="source_baidu"]/text()','/html/body/div[4]/div/div[1]/a/text()'])
 
 #  bbs.hcbbs.com  bbs论坛，都是帖子
 #  bbs.jrj.com.cn  同上
@@ -437,8 +440,8 @@ dict['gupiao.jd.com'] = \
 dict['gupiao.southmoney.com'] = \
     OriginDict("static",
                "南方股票网",
-               '//*[@id="articleTime"]/text()',
-               '//*[@id="articleSource"]/a/text()')
+               ['//*[@id="articleTime"]/text()','/html/body/div[4]/div[1]/div[2]/div[1]/p/text()[1]'],
+               ['//*[@id="articleSource"]/a/text()','/html/body/div[4]/div[1]/div[2]/div[1]/p/text()[2]'])
 
 #  ir.sia.ac.cn  依旧是论文库
 #  jue-ce.com  个人发帖网站
@@ -461,8 +464,8 @@ dict['lights.ofweek.com'] = \
 dict['stock.10jqka.com.cn'] = \
     OriginDict("static",
                "同花顺财经",
-               '//*[@id="pubtime_baidu"]/text()',
-               '//*[@id="source_baidu"]/text()')
+               ['//*[@id="pubtime_baidu"]/text()','/html/body/div[2]/div[1]/div/div[1]/div[1]/span[1]/text()'],
+               ['//*[@id="source_baidu"]/text()','/html/body/div[2]/div[1]/div/div[1]/div[1]/span[2]/text()'])
 
 dict['news.cnstock.com'] = \
     OriginDict("static",
@@ -505,8 +508,8 @@ dict['news.scol.com.cn'] = \
 dict['sc.stock.cnfol.com'] = \
     OriginDict("static",
                "中金在线",
-               '//*[@id="pubtime_baidu"]/text()',
-               '//*[@id="source_baidu"]/span/text()')
+               ['//*[@id="pubtime_baidu"]/text()','//*[@id="pubtime_baidu"]/text()'],
+               ['//*[@id="source_baidu"]/span/text()','//*[@id="source_baidu"]/a'])
 
 #  spirit.tjkx.com  没有来源
 
