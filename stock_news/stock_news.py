@@ -8,51 +8,36 @@ import url_crawler
 import origin_crawler
 import iwencai
 import xlwt
-import xlrd
-from xlutils.copy import copy
 
 unsaved = {}
-dict = iwencai.start()
 
-f = copy(xlrd.open_workbook('stockcode.xls'))
-sheet1 = f.sheets()[0]
-sheet2 = f.add_sheet(u'sheet2', cell_overwrite_ok=True)
+iwencaiResult = iwencai.start()
+dateStock = iwencaiResult[0]
+dict = iwencaiResult[1]
 
-rowCounter1 = 0
-rowCounter2 = 0
+stockOrigin = xlwt.Workbook()
+sheet1 = stockOrigin.add_sheet(u'Sheet1', cell_overwrite_ok=True)
 
+
+rowCounter = 0
+for (dates, stockcodes) in dateStock.items():
+	for i in dateStock[dates]:
+		columnCounter = 0
+		sheet1.write(rowCounter, columnCounter, dates)
+		columnCounter = 1
+		sheet1.write(rowCounter, columnCounter, i)
+		rowCounter += 1
+
+rowCounter = 0
 for (stock,list) in dict.items():
-    print "dict[%s]=" % stock
-    columnCounter1 = 3
-    for i in list:
-        print i+'\n'
-        sheet1.write(rowCounter1,columnCounter1,i)
-        columnCounter1 += 1
-        
-        columnCounter2 = 0
-        sheet2.write(rowCounter2,columnCounter2,i)
-        columnCounter2 += 1
-        
-        # print unsaved
-        news_urls = url_crawler.start(i)
-        
-        for j in news_urls:
-            # print j
-            originResult = origin_crawler.origin_crawler(j,unsaved)
-            
-            sheet2.write(rowCounter2,columnCounter2,j)
-            columnCounter2 += 1
-            sheet2.write(rowCounter2,columnCounter2,originResult.time())
-            columnCounter2 += 1
-            sheet2.write(rowCounter2,columnCounter2,originResult.origin())
-            columnCounter2 += 1
-            sheet2.write(rowCounter2,columnCounter2,originResult.other())
-            
-            rowCounter2 +=1
-            columnCounter2 = 1
-        
-    rowCounter1 += 1
+	columnCounter = 2
+	for i in list:
+		sheet1.write(rowCounter, columnCounter, i)
+		columnCounter += 1
+	rowCounter += 1
 
-f.save('stockOrigin.xls')
+sheet2 = stockOrigin.add_sheet(u'Sheet2', cell_overwrite_ok=True)
 
-print unsaved
+
+
+stockOrigin.save('newsOrigin.xls')
