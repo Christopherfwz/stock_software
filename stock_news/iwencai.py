@@ -83,7 +83,7 @@ def getnews(search_key,date_required):
     date_begin = dateToString(date_required + datetime.timedelta(days=-3))
 
     url_all = url + 'diag/block-detail?pid=11656&codes=' + key_code + '&codeType=stock&info=%7B%22view%22%3A%7B%22nolazy%22%3A1%2C%22parseArr%22%3A%7B%22_v%22%3A%22new%22%2C%22dateRange%22%3A%5B%22'
-    url_all = url_all + d_begin + '%22%2C%22' + d_now + '%22%5D%2C%22staying%22%3A%5B%5D%2C%22queryCompare%22%3A%5B%5D%2C%22comparesOfIndex%22%3A%5B%5D%7D%2C%22asyncParams%22%3A%7B%22tid%22%3A9381%7D%7D%7D'
+    url_all = url_all + date_begin + '%22%2C%22' + date_now + '%22%5D%2C%22staying%22%3A%5B%5D%2C%22queryCompare%22%3A%5B%5D%2C%22comparesOfIndex%22%3A%5B%5D%7D%2C%22asyncParams%22%3A%7B%22tid%22%3A9381%7D%7D%7D'
     req = urllib2.Request(url_all)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
     time.sleep(2)
@@ -109,7 +109,7 @@ def start():
 		stockCode[dateToString(getDate(d))] = getZtCode(getDate(d))
 		for i in range(len(stockCode[dateToString(getDate(d))])):
 			dict[stockCode[dateToString(getDate(d))][i]] = getnews(stockCode[dateToString(getDate(d))][i],getDate(d))
-            sheet1.write(i,0,dateToString(getDate(d)))
+			sheet1.write(i,0,dateToString(getDate(d)))
 			sheet1.write(i,1,stockCode[dateToString(getDate(d))][i])
 		f.save('stockcode.xls')
 	 
