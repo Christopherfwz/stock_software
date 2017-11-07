@@ -7,7 +7,6 @@ from origin_xpath import dict
 import socket
 import chardet
 
-
 def origin_crawler(url, unsaved):
     global real_url, res
 
@@ -75,7 +74,8 @@ def origin_crawler(url, unsaved):
                             origin = dom.xpath(temp_origin)[0]
                             # print time, origin
                             print '\033[5;43m' + time, origin + ' \033[0m!'
-                            return
+                            other = ''
+                            return time,origin,other
                         except:
                             pass
 
@@ -90,6 +90,9 @@ def origin_crawler(url, unsaved):
                         try:
                             other = dom.xpath(temp_other)[0]
                             print '\033[5;43m' + other + ' \033[0m!'
+                            time = ''
+                            origin = ''
+                            return time,origin,other
                         except:
                             pass
 
