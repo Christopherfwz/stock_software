@@ -5,7 +5,6 @@ import re
 import datetime
 import sys
 import time
-import xlwt
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -87,7 +86,7 @@ def getnews(search_key,date_required):
     req = urllib2.Request(url_all)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
     time.sleep(2)
-    print url_all
+
     html = urllib2.urlopen(req).read()
 
     # use re to select news
@@ -102,15 +101,10 @@ def getnews(search_key,date_required):
 def start():
 	stockCode = {}
 	dict = {}
-	f = xlwt.Workbook() 
-	sheet1 = f.add_sheet(u'sheet1', cell_overwrite_ok=True) 
     
-	for d in range(0,5):
+	for d in range(0,3):
 		stockCode[dateToString(getDate(d))] = getZtCode(getDate(d))
 		for i in range(len(stockCode[dateToString(getDate(d))])):
 			dict[stockCode[dateToString(getDate(d))][i]] = getnews(stockCode[dateToString(getDate(d))][i],getDate(d))
-			sheet1.write(i,0,dateToString(getDate(d)))
-			sheet1.write(i,1,stockCode[dateToString(getDate(d))][i])
-		f.save('stockcode.xls')
-	 
-	return dict
+
+	return stockCode,dict
