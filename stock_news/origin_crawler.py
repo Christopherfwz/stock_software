@@ -40,6 +40,7 @@ def origin_crawler(url, unsaved):
 
         if dict[res].type == 'dynamic':
             print 1
+
         elif dict[res].type == 'static':
             print real_url
             req = urllib2.Request(real_url)
@@ -74,8 +75,6 @@ def origin_crawler(url, unsaved):
                             origin = dom.xpath(temp_origin)[0]
                             # print time, origin
                             print '\033[5;43m' + time, origin + ' \033[0m!'
-                            other = ''
-                            return time,origin,other
                         except:
                             pass
 
@@ -90,19 +89,18 @@ def origin_crawler(url, unsaved):
                         try:
                             other = dom.xpath(temp_other)[0]
                             print '\033[5;43m' + other + ' \033[0m!'
-                            time = ''
-                            origin = ''
-                            return time,origin,other
                         except:
                             pass
 
         else:
             print '数据库信息不完整，当前页面无法处理。'
+
     except KeyError:
         print '当前网站未收录，无法处理。 网站域名：' + res
         if unsaved.get(res) is not None:
             unsaved[res] = unsaved.get(res)+1
         else:
             unsaved[res] = 1
+
     except:
         print 'xpath有误' + res
