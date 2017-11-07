@@ -27,24 +27,32 @@ for (stock,list) in dict.items():
     for i in list:
         print i+'\n'
         sheet1.write(rowCounter1,columnCounter1,i)
-        columnCounter1 = columnCounter1 + 1
+        columnCounter1 += 1
+        
         columnCounter2 = 0
         sheet2.write(rowCounter2,columnCounter2,i)
-        columnCounter2 = 1
+        columnCounter2 += 1
         
         # print unsaved
         news_urls = url_crawler.start(i)
         
         for j in news_urls:
             # print j
-            origin_crawler.origin_crawler(j,unsaved)
+            originResult = origin_crawler.origin_crawler(j,unsaved)
             
             sheet2.write(rowCounter2,columnCounter2,j)
-            columnCounter2 = columnCounter2 + 1
-        rowCounter2 = rowCounter2 + 1
+            columnCounter2 += 1
+            sheet2.write(rowCounter2,columnCounter2,originResult.time())
+            columnCounter2 += 1
+            sheet2.write(rowCounter2,columnCounter2,originResult.origin())
+            columnCounter2 += 1
+            sheet2.write(rowCounter2,columnCounter2,originResult.other())
+            
+            rowCounter2 +=1
+            columnCounter2 = 1
         
-    rowCounter1 = rowCounter1 + 1
+    rowCounter1 += 1
 
-f.save('stockNewsO.xls')
+f.save('stockOrigin.xls')
 
 print unsaved
