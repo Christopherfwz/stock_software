@@ -103,13 +103,14 @@ def start():
 	stockCode = {}
 	dict = {}
 	f = xlwt.Workbook() 
-	
+	sheet1 = f.add_sheet(u'sheet1', cell_overwrite_ok=True) 
+    
 	for d in range(0,5):
 		stockCode[dateToString(getDate(d))] = getZtCode(getDate(d))
-		sheet1 = f.add_sheet(dateToString(getDate(d)), cell_overwrite_ok=True) 
 		for i in range(len(stockCode[dateToString(getDate(d))])):
 			dict[stockCode[dateToString(getDate(d))][i]] = getnews(stockCode[dateToString(getDate(d))][i],getDate(d))
-			sheet1.write(i,0,stockCode[dateToString(getDate(d))][i])
+            sheet1.write(i,0,dateToString(getDate(d)))
+			sheet1.write(i,1,stockCode[dateToString(getDate(d))][i])
 		f.save('stockcode.xls')
 	 
 	return dict
