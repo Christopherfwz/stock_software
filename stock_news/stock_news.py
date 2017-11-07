@@ -12,11 +12,11 @@ import xlrd
 from xlutils.copy import copy
 
 unsaved = {}
+dict = iwencai.start()
+
 f = copy(xlrd.open_workbook('stockcode.xls'))
 sheet1 = f.sheets()[0]
 sheet2 = f.add_sheet(u'sheet2', cell_overwrite_ok=True)
-
-dict = iwencai.start()
 
 rowCounter1 = 0
 rowCounter2 = 0
