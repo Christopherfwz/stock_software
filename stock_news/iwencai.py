@@ -5,6 +5,7 @@ import re
 import datetime
 import sys
 import time
+import xlwt
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -101,10 +102,14 @@ def getnews(search_key,date_required):
 def start():
 	stockCode = {}
 	dict = {}
+	f = xlwt.Workbook() 
 	
 	for d in range(0,5):
 		stockCode[dateToString(getDate(d))] = getZtCode(getDate(d))
+		sheet1 = f.add_sheet(dateToString(getDate(d)), cell_overwrite_ok=True) 
 		for i in range(len(stockCode[dateToString(getDate(d))])):
 			dict[stockCode[dateToString(getDate(d))][i]] = getnews(stockCode[dateToString(getDate(d))][i],getDate(d))
-	print dict
-
+			sheet1.write(i,0,stockCode[dateToString(getDate(d))][i])
+		f.save('stockcode.xls')
+	 
+	return dict
