@@ -37,7 +37,19 @@ for (stock,list) in dict.items():
 	rowCounter += 1
 
 sheet2 = stockOrigin.add_sheet(u'Sheet2', cell_overwrite_ok=True)
-
-
+rowCounter = 0
+for (stock,list) in dict.items():
+	for news in list:
+		sheet2.write(rowCounter,0,news)
+		news_urls = url_crawler.start(news)
+		for urls in news_urls:
+			result = origin_crawler.origin_crawler(urls,unsaved)
+			if result:
+				sheet2.write(rowCounter,1,urls)
+				columnCounter = 2
+				for i in result:
+					sheet2.write(rowCounter,columnCounter,i)
+					columnCounter +=1
+				rowCounter += 1
 
 stockOrigin.save('newsOrigin.xls')
