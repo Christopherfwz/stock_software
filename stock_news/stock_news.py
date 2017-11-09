@@ -8,6 +8,7 @@ import url_crawler
 import origin_crawler
 import iwencai
 import xlwt
+import time
 
 unsaved = {}
 
@@ -51,5 +52,6 @@ for (stock,list) in dict.items():
 					sheet2.write(rowCounter,columnCounter,i)
 					columnCounter +=1
 				rowCounter += 1
+		time.sleep(2)
 
 stockOrigin.save('newsOrigin.xls')
