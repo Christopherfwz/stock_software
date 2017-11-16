@@ -38,6 +38,7 @@ def origin_crawler(url, unsaved):
             a = dict[res]
         except:
             return
+        webName = unicode(dict[res].name,"utf-8")
 
         if dict[res].type == 'dynamic':
             print 1
@@ -66,7 +67,7 @@ def origin_crawler(url, unsaved):
                     origin = dom.xpath(xpath_origin)[0]
                     # print time, origin
                     print '\033[5;43m'+time, origin+' \033[0m!'
-                    crawlerResult=[time, origin]
+                    crawlerResult=[real_url,webName,time,origin]
                 else:
                     for i in range(len(xpath_time)):
                         temp_time = xpath_time[i]
@@ -76,7 +77,7 @@ def origin_crawler(url, unsaved):
                             origin = dom.xpath(temp_origin)[0]
                             # print time, origin
                             print '\033[5;43m' + time, origin + ' \033[0m!'
-                            crawlerResult=[time, origin]
+                            crawlerResult=[real_url,webName,time,origin]
                         except:
                             pass
 
@@ -85,14 +86,14 @@ def origin_crawler(url, unsaved):
                 if type(xpath_other) != list:
                     other = dom.xpath(xpath_other)[0]
                     print '\033[5;43m' + other + ' \033[0m!'
-                    crawlerResult=[other]
+                    crawlerResult=[real_url,webName,other]
                 else:
                     for i in range(len(xpath_other)):
                         temp_other = xpath_other[i]
                         try:
                             other = dom.xpath(temp_other)[0]
                             print '\033[5;43m' + other + ' \033[0m!'
-                            crawlerResult=[other]
+                            crawlerResult=[real_url,webName,other]
                         except:
                             pass
 
