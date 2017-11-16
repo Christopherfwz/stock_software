@@ -97,14 +97,3 @@ def getnews(search_key,date_required):
         final_news[counter] = final_news[counter][11:][:-9].decode('unicode_escape')
 
     return final_news
-
-def start():
-	stockCode = {}
-	dict = {}
-    
-	for d in range(0,3):
-		stockCode[dateToString(getDate(d))] = getZtCode(getDate(d))
-		for i in range(len(stockCode[dateToString(getDate(d))])):
-			dict[stockCode[dateToString(getDate(d))][i]] = getnews(stockCode[dateToString(getDate(d))][i],getDate(d))
-
-	return stockCode,dict
