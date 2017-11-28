@@ -15,7 +15,7 @@ unsaved = {}
 #从iwencai获取当天股票代码和原因，如果所需时间与涨停板时间不同（如输入11日，涨停板上是10日，说明11日停市，无结果），
 #此时iwencai返回的list为空，用的时候要判断一下
 
-date = iwencai.getDate(4)
+date = iwencai.getDate(4)#获取4天前的涨停板
 iwencaiResult = iwencai.getZtCode(date)
 dateStr = iwencai.dateToString(date)#日期（string），存的时候可用
 stockCode = iwencaiResult[0]#股票代码（list）
