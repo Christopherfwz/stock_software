@@ -33,6 +33,16 @@ def getZtCode(date_required):
     req = urllib2.Request(start_url)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0')
     html = urllib2.urlopen(req).read().decode('utf-8')
+    
+    # judge whether the date is true
+    pattern_d1 = '<div class="natl_box" title="\d+.*?" statu'
+    pattern_d2 = 'title=".*?'+u'\u65e5'
+    d0 = re.compile(pattern_d1).findall(html)
+    d1 = re.compile(pattern_d2).findall(','.join(d0))
+    d1[0] = d1[0][7:]
+    date_wanted = str(date_required.year)+u'\u5e74'+str(date_required.month)+u'\u6708'+str(date_required.day)+u'\u65e5'
+    if d1[0]!=date_wanted:
+        return
 
     # first-level match
     patern1 = 'stockpick_ztyy&querytype=&tid=stockpick&w=.*?&queryarea=all">.*?</a>'
@@ -61,7 +71,7 @@ def getZtCode(date_required):
         else:
             counter0 = counter0 + 1
 
-    return stockcode
+    return stockcode,rise_reason
 
 def getnews(search_key,date_required):
     # make sure search_key and page is valid
