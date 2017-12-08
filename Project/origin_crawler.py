@@ -37,7 +37,9 @@ def origin_crawler(url, unsaved):
         try:
             a = dict[res]
         except:
-            return
+            ###储存unsaved的  domain url
+            ###store(res, real_url)
+            return crawlerResult
         webName = unicode(dict[res].name,"utf-8")
 
         if dict[res].type == 'dynamic':
@@ -108,4 +110,8 @@ def origin_crawler(url, unsaved):
     except:
         print 'go on'
 
+    if len(crawlerResult) == 0:
+        pass ###添加后删除该行
+        ###储存unsaved的  domain url
+        ###store(res, real_url)
     return  crawlerResult
