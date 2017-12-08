@@ -6,6 +6,7 @@ import url_crawler
 import origin_crawler
 import catchKeywords
 import iwencai
+import time
 
 unsaved = {}
 
@@ -28,6 +29,7 @@ if iwencaiResult:#判断是否为空，即当天是否开市
 			news_urls = url_crawler.start(exactnews)#这一条新闻在百度上拿出来的多个url
 			for urls in news_urls:
 				originResults = origin_crawler.origin_crawler(urls,unsaved)#每个新闻网站的时间、来源
+				time.sleep(2)
 				
 				#用滑稽新写的，修正一下时间来源的格式，得到的originResult一定是含有5个元素的，为新闻网站url、网站名称、时间(2个)来源(1个)或者对应的‘无详细xxx’
 				if originResults:
